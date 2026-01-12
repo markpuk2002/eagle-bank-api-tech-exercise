@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+    open-in-view: false
+
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false
+
+jwt:
+  # Base64 encoded 32-byte key for testing: "test-secret-key-32-bytes-long!!"
+  secret: dGVzdC1zZWNyZXQta2V5LTMyLWJ5dGVzLWxvbmchISE=
+  expiration: 3600000
+
+logging:
+  level:
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+    root: WARN
